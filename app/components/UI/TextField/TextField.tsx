@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     borderRadius: Borders.RADIUS_8,
     backgroundColor: AppColors.WHITE_GRAY,
     width: '100%',
+    justifyContent: 'center',
     height: INPUT_SIZE,
     ...Platform.select({
       ios: {

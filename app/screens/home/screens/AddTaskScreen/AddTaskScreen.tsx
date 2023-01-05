@@ -6,6 +6,7 @@ import {Spacing} from '@styles/index';
 import {AppButton} from '@components/UI/AppButton';
 import {useStores} from '../../../../hooks/useStores';
 import {observer} from 'mobx-react';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 export const AddTaskScreen: React.FC = observer(() => {
   const [value, setValue] = React.useState<string>('');
@@ -22,7 +23,7 @@ export const AddTaskScreen: React.FC = observer(() => {
   };
 
   return (
-    <>
+    <SafeAreaView edges={['bottom', 'top']} style={{flex: 1}}>
       <AppBackHeader title="Вернуться назад" />
       <View style={styles.content}>
         <TextField
@@ -34,7 +35,7 @@ export const AddTaskScreen: React.FC = observer(() => {
           <AppButton text="Добавить" disabled={!value} onPress={onAddTask} />
         </View>
       </View>
-    </>
+    </SafeAreaView>
   );
 });
 

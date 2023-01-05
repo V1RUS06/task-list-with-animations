@@ -6,6 +6,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {NAVIGATION_HOME} from '@navigation/screenNames';
 import {TasksList} from '@screens/home/components/TasksList/TasksList';
 import {observer} from 'mobx-react';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const LOGO_IMAGE = require('@assets/images/logo.png');
 
@@ -16,13 +17,15 @@ export const HomeScreen: React.FC<StackScreenProps<any>> = observer(
     };
 
     return (
-      <View style={styles.container}>
-        <Image source={LOGO_IMAGE} style={styles.logo} resizeMode="contain" />
-        <View style={styles.addButtonContainer}>
-          <AddButton onPress={onAddTaskPress} />
+      <SafeAreaView edges={['bottom', 'top']} style={{flex: 1}}>
+        <View style={styles.container}>
+          <Image source={LOGO_IMAGE} style={styles.logo} resizeMode="contain" />
+          <View style={styles.addButtonContainer}>
+            <AddButton onPress={onAddTaskPress} />
+          </View>
+          <TasksList />
         </View>
-        <TasksList />
-      </View>
+      </SafeAreaView>
     );
   },
 );
